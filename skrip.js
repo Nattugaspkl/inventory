@@ -1,5 +1,5 @@
 // ============ CONFIG =============
-const API_URL = "https://script.google.com/macros/s/AKfycbwHWIpnKRc9am3GR-YrRFGi52Il5OZnfr3UFD1E2SYtmcz1MVnQ40c5gY1sifGVZZng/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbx0k9FdGkNKjUY-Q9B0YMyvArJfq8Wuw6yL-C-SST4kTqckx4DkmH6kzfTsptjRhyn6/exec";
 // ============ END CONFIG =========
 
 // local cache of items (kept in sync with sheet)
@@ -297,3 +297,4 @@ refs.modalBack.addEventListener('click', e=> { if(e.target===refs.modalBack) clo
 
 // init
 refreshData();
+
