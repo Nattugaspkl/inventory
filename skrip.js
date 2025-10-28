@@ -4,6 +4,40 @@ const API_KEY = "AIzaSyB92syQ2oVQdikLEA9xJMLdg1vssxxmods"; // Ganti dengan API k
 const SHEET_NAME = "Data";
 // ============ END CONFIG =========
 
+// Ambil semua data
+async function loadData() {
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  const [header, ...rows] = data.values;
+  renderList(header, rows);
+}
+
+// Tambah data baru
+async function addData(newItem) {
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}:append?valueInputOption=RAW&key=${API_KEY}`;
+  const body = {
+    values: [[
+      newItem.ID,
+      newItem.Nama,
+      newItem.Jenis,
+      newItem.Kategori,
+      newItem.Part,
+      newItem.Jumlah,
+      newItem.Satuan,
+      newItem.Keterangan
+    ]]
+  };
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body)
+  });
+  const result = await res.json();
+  alert("Produk berhasil ditambahkan!");
+  console.log(result);
+}
+
 // local cache of items (kept in sync with sheet)
 let items = [];
 
@@ -299,6 +333,7 @@ refs.modalBack.addEventListener('click', e=> { if(e.target===refs.modalBack) clo
 
 // init
 refreshData();
+
 
 
 
