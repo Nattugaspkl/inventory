@@ -1,5 +1,5 @@
 // ============ CONFIG =============
-const API_URL = "https://script.google.com/macros/s/AKfycbx0k9FdGkNKjUY-Q9B0YMyvArJfq8Wuw6yL-C-SST4kTqckx4DkmH6kzfTsptjRhyn6/exec";
+const API_URL = "https://corsproxy.io/?" + encodeURIComponent("https://script.google.com/macros/s/AKfycbx0k9FdGkNKjUY-Q9B0YMyvArJfq8Wuw6yL-C-SST4kTqckx4DkmH6kzfTsptjRhyn6/exec");
 // ============ END CONFIG =========
 
 // local cache of items (kept in sync with sheet)
@@ -297,4 +297,5 @@ refs.modalBack.addEventListener('click', e=> { if(e.target===refs.modalBack) clo
 
 // init
 refreshData();
+
 
