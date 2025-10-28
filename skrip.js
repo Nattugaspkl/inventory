@@ -1,5 +1,7 @@
 // ============ CONFIG =============
-const API_URL = "https://script.google.com/macros/s/AKfycbyfAt6mWlKvPbD3LWds04wCH3kQ7BsL8cirxP_LPGGmACX7bcgSmZMnK5FxQQI1CGFY/exec";
+const SHEET_ID = "1pxQmIM2O0aIBpd7HHtK22eLgXBmOifruFr4uI6NoHXs"; // Ganti dengan ID spreadsheet kamu
+const API_KEY = "AIzaSyB92syQ2oVQdikLEA9xJMLdg1vssxxmods"; // Ganti dengan API key kamu
+const SHEET_NAME = "Data";
 // ============ END CONFIG =========
 
 // local cache of items (kept in sync with sheet)
@@ -297,6 +299,7 @@ refs.modalBack.addEventListener('click', e=> { if(e.target===refs.modalBack) clo
 
 // init
 refreshData();
+
 
 
 
