@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inventory — Elegant UI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand" id="logoBtn">
+        <div class="logo">INV</div>
+        <div class="brandText">
+          <h3>PT. Contoh Perusahaan</h3>
+          <p>Inventory & Asset Management</p>
+        </div>
+      </div>
+
+      <div class="menu">
+        <div class="item" id="homeBtn"><div class="icon">🏠</div><div class="label">Home</div></div>
+
+        <div class="item hasToggle" id="barangBtn"><div class="icon">📦</div><div class="label">Barang</div><div class="chev">▸</div></div>
+
+        <div class="nested" id="barangNested" style="display:none">
+          <div class="item sub" data-type="alat" id="alatBtn"><div class="icon">🔧</div><div class="label">Alat</div><div class="chev">▸</div></div>
+          <div class="nested" id="alatNested" style="display:none;padding-left:8px"><div id="alatCategories"></div></div>
+
+          <div class="item sub" data-type="material" id="matBtn"><div class="icon">🧱</div><div class="label">Material</div><div class="chev">▸</div></div>
+          <div class="nested" id="matNested" style="display:none;padding-left:8px"><div id="matCategories"></div></div>
+        </div>
+
+        <div class="item" id="searchPanelBtn"><div class="icon">🔎</div><div class="label">Search</div></div>
+        <div class="item" id="tutorialBtn"><div class="icon">📘</div><div class="label">Tutorial</div></div>
+
+        <div class="searchBox">
+          <input id="quickSearch" placeholder="Search by name / id / part" />
+          <button class="btn" id="searchBtn">Go</button>
+        </div>
+      </div>
+
+      <div class="footer muted">Demo • Data disimpan di Google Sheets</div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar panel">
+        <h2 id="pageTitle">Home</h2>
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="muted">User: Guest</div>
+          <button class="btn" id="addBtn">Tambah Produk</button>
+          <input type="file" id="csvFile" accept=".csv" style="display:none" />
+          <button class="btn" id="importBtn">Import CSV</button>
+          <button class="btn" id="exportBtn">Export CSV</button>
+        </div>
+      </div>
+
+      <div class="content panel">
+        <div class="cards">
+          <div class="stat"><div class="muted">Total Produk</div><div id="totalCount" class="big">0</div></div>
+          <div class="stat"><div class="muted">Alat</div><div id="alatCount" class="big">0</div></div>
+          <div class="stat"><div class="muted">Material</div><div id="matCount" class="big">0</div></div>
+        </div>
+
+        <hr>
+
+        <div class="body-grid">
+          <section class="listPanel">
+            <div id="listArea" class="list"></div>
+          </section>
+
+          <aside class="detailPanel">
+            <h3>Detail Produk</h3>
+            <div id="detailArea" class="detailEmpty">Pilih sebuah produk untuk melihat detailnya.</div>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="modalBack" id="modalBack"><div class="modal" id="modalContent"></div></div>
+
+  <script src="skrip.js"></script>
+</body>
+</html>
